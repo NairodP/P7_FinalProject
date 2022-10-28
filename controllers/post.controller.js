@@ -5,6 +5,7 @@ const { uploadErrors } = require("../utils/errors.utils");
 const ObjectID = require("mongoose").Types.ObjectId;
 const fs = require("fs");
 const { promisify } = require("util");
+const { runInContext } = require("vm");
 const pipeline = promisify(require("stream").pipeline);
 
 module.exports.readPost = (req, res) => {
@@ -15,7 +16,6 @@ module.exports.readPost = (req, res) => {
 };
 
 module.exports.createPost = async (req, res) => {
-
   const newPost = new postModel({
     posterId: req.body.posterId,
     message: req.body.message,
@@ -32,6 +32,31 @@ module.exports.createPost = async (req, res) => {
   }
 };
 
+// run()
+// async function run() {
+//   try {
+//     const admin = await UserModel.find({ isAdmin })
+//     console.log(admin);
+//   } catch(e) {
+//     console.log(e.message);
+//   }
+
+//   try {
+//     const commenterUser = await PostModel.findById(req.params.id)
+//     console.log(commenterUser);
+//   } catch(e) {
+//     console.log(e.message);
+//   }
+
+//   try {
+//     const poster = await UserModel.find(commenterUser.posterId)
+//     console.log(poster);
+//   } catch(e) {
+//     console.log(e.message);
+//   }
+//   // if (commenterUser.posterId == )
+// }
+
 module.exports.updatePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
@@ -45,8 +70,41 @@ module.exports.updatePost = (req, res) => {
     { $set: updatedRecord },
     { new: true },
     (err, docs) => {
-      if (!err) res.send(docs);
-      else console.log("Update error : " + err);
+      if (!err) {
+        res.send(docs);
+        // console.log("req.params.id : ");
+        // console.log(req.params.id);
+        // console.log("docs : ");
+        // console.log(docs);
+
+        // run();
+        // async function run() {
+          // try {
+          //   const admin = await UserModel.find({ isAdmin: true });
+          //   console.log("admin");
+          //   console.log(admin);
+          // } catch (e) {
+          //   console.log(e.message);
+          // }
+
+          // try {
+          //   const commenterUser = await PostModel.findById(req.params.id);
+          //   console.log("commenterUser");
+          //   console.log(commenterUser.posterId);
+            
+          // } catch (e) {
+          //   console.log(e.message);
+          // }
+
+          // try {
+          //   const poster = await UserModel.find(commenterUser.posterId);
+          //   console.log("poster");
+          //   console.log(poster);
+          // } catch (e) {
+          //   console.log(e.message);
+          // }
+        // }
+      } else console.log("Update error : " + err);
     }
   );
 };
@@ -193,3 +251,18 @@ module.exports.deleteCommentPost = (req, res) => {
     return res.status(400).send(err);
   }
 };
+
+/////////////TEST
+
+// PostModel.find(
+//   req.params.id || { isAdmin: true },
+//   { $set: updatedRecord },
+//   { new: true },
+//   (err, docs) => {
+//     if (!err) {
+//       res.send(docs);
+//       console.log("docs : ");
+//       console.log(docs);
+//     } else console.log("Update error : " + err);
+//   }
+// );

@@ -80,7 +80,7 @@ const Card = ({ post }) => {
             {post.picture && (
               <img src={url + post.picture} alt="card-pic" className="card-pic" />
             )}
-            {userData._id === post.posterId && (
+            {(userData._id === post.posterId || userData.isAdmin === true) && (
               <div className="button-container">
                 <div onClick={() => setIsUpdated(!isUpdated)}>
                   <img src="./img/icons/edit.svg" alt="edit" />
