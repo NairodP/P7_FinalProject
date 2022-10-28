@@ -1,0 +1,49 @@
+$font-1: "lato";
+
+$color-1: #fd2d01;
+$color-2: #dae1ee;
+$color-3: rgb(78, 81, 102);
+$color-4: rgb(118, 122, 147);
+$color-5: rgb(136, 144, 196);
+$color-6: rgb(139, 143, 171);
+$color-7: rgb(167, 172, 205);
+$white: rgb(243, 243, 243);
+
+@mixin flexCentre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*, ::before, ::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  &::selection {
+    background: $color-2;
+  }
+}
+
+body {
+  background: #f5f5f5;
+  font-family: $font-1, sans-serif;
+  font-size: 15px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.error {
+  color: #c22c0c;
+  font-size: 13px;
+  margin-top: -.5em;
+  margin-bottom: .6em;
+  padding: .3em;
+}
+.success {
+  color: #377d37;
+  font-size: 13px;
+  margin-top: -.5em;
+  margin-bottom: .6em;
+  padding: .3em;
+}

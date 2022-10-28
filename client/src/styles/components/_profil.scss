@@ -1,0 +1,229 @@
+.picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  margin-top: 3em;
+
+  .picture-profil {
+    width: 120px;
+    height: 120px;
+    vertical-align: middle;
+    // overflow: hidden;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #47485e;
+  }
+}
+
+.line {
+  border: 1px solid #47485e;
+  border-radius: 100%;
+  width: 40%;
+  margin: -1em 0 3em;
+
+  @media screen and (max-width: 426px) {
+    margin: -0.5em 0 3em;
+  }
+}
+
+.upload-img {
+  display: flex;
+
+  form.upload-pic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    label {
+      margin-top: -0.6em;
+      margin-bottom: 1.3em;
+      color: $white;
+      font-weight: lighter;
+      font-size: 1.1rem;
+      transition: transform 0.4s;
+      padding-bottom: 3px;
+      overflow: hidden;
+
+      &:hover {
+        transform: scale(1.01);
+        border-bottom: 1px solid $white;
+        cursor: pointer;
+        padding-bottom: 2px;
+
+        @media screen and (max-width: 426px) {
+          transform: none;
+          border: none;
+          padding-bottom: 3px;
+          cursor: default;
+        }
+      }
+    }
+    .toggleDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @media screen and (max-width: 426px) {
+        margin: 5px;
+      }
+
+      .error-msg-upload {
+        @include flexCentre;
+        position: relative;
+        right: 0;
+        font-size: 1rem;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        padding: 0.5em;
+        font-size: 1.1rem;
+        border-radius: 0.2em;
+        background-color: rgba(191, 197, 239, 0.35);
+        color: $white;
+        font-weight: lighter;
+
+        @media screen and (max-width: 426px) {
+          width: 80%;
+          margin-bottom: 1em;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 1px $white;
+        }
+      }
+      .publi-btn {
+        margin-top: 10px;
+        padding: 0.5em 1em;
+        margin-bottom: 2em;
+        font-size: 1.2rem;
+        font-weight: lighter;
+        color: $white;
+        cursor: pointer;
+        outline: none;
+        border-radius: 0.25em;
+        border: 1px solid rgba(191, 197, 239);
+        background-color: rgba(191, 197, 239, 0.35);
+
+        &:hover,
+        &:focus {
+          background-color: rgba(191, 197, 239);
+
+          @media screen and (max-width: 426px) {
+            background-color: rgba(191, 197, 239, 0.35);
+          }
+        }
+      }
+    }
+  }
+}
+
+.bio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .update-bio {
+    .bio-title {
+      margin: 1em 0 0.2em;
+      color: rgb(243, 243, 243);
+      font-size: 1.3rem;
+      text-align: left;
+      overflow: hidden;
+
+      .emoji-fleche {
+        font-size: 0.5em;
+      }
+    }
+
+    .update-bio-text {
+      text-align: center;
+      cursor: pointer;
+      min-height: 40px;
+      border: 1px solid $color-5;
+      background-color: $color-5;
+      border-radius: 20px 20px 0px 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-weight: lighter;
+      width: 100%;
+      outline: none;
+      @media screen and (max-width: 426px) {
+        font-size: 1em;
+        border-radius: 20px;
+      }
+
+      .bio-default-value {
+        font-style: italic;
+        font-size: 1.1em;
+
+        @media screen and (max-width: 426px) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+}
+
+.text-aera-bio {
+  min-height: 40px;
+  border: 1px solid $color-5;
+  background-color: $color-2;
+  border-radius: 20px 20px 0px 20px;
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 1.2rem;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media screen and (max-width: 426px) {
+    font-size: 1em;
+    border-radius: 20px;
+  }
+}
+
+.btn-bio {
+  padding: 0.5em 1em;
+  margin: 0 auto 2em;
+  float: right;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  color: $white;
+  cursor: pointer;
+  outline: none;
+  border-radius: 6px 5px 20px 6px;
+  border: 1px solid rgba(191, 197, 239);
+  background-color: rgba(191, 197, 239, 0.35);
+
+  &:hover,
+  &:focus {
+    background-color: rgba(191, 197, 239);
+
+    @media screen and (max-width: 426px) {
+      background-color: rgba(191, 197, 239, 0.35);
+    }
+  }
+  @media screen and (max-width: 426px) {
+    border-radius: 20px;
+    margin-top: 5px;
+  }
+}
+
+.crea-date {
+  color: rgb(243, 243, 243);
+  font-weight: lighter;
+  font-size: 1.1rem;
+
+  @media screen and (max-width: 426px) {
+    font-size: .9rem;
+    text-align: center;
+  }
+}
